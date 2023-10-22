@@ -1,0 +1,21 @@
+global: # Global config which can be overridden.
+  scrape_interval: 120s # By default, scrape targets every 15 seconds.
+
+# Specific scrape config per endpoint.
+scrape_configs:
+  # This job is used to get data from prometheus itself (container running on port 9090).
+  - job_name: 'prometheus'
+    # Override the global default and scrape targets from this job every 5 seconds.
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090'] # Simply, pointing out the target to be scrapped
+
+  # This job is used to get data from the movies api (Spring app running on port 8082).
+  - job_name: 'movies-api'
+    # Override the global default and scrape targets from this job every 5 seconds.
+    scrape_interval: 5s
+    metrics_path: /actuator/prometheus # this is the path on movies api used to provide prometheus with health info.
+    static_configs:
+      - targets: ['localhost:8082'] # Simply, pointing out the target to be scrapped
+        labels:
+          application: "Movies API"

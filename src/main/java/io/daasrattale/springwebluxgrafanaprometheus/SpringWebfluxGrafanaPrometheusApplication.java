@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringWebluxGrafanaPrometheusApplication {
+public class SpringWebfluxGrafanaPrometheusApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringWebluxGrafanaPrometheusApplication.class, args);
+        SpringApplication.run(SpringWebfluxGrafanaPrometheusApplication.class, args);
     }
 
 }
