@@ -16,6 +16,6 @@ scrape_configs:
     scrape_interval: 5s
     metrics_path: /actuator/prometheus # this is the path on movies api used to provide prometheus with health info.
     static_configs:
-      - targets: ['localhost:8082'] # Simply, pointing out the target to be scrapped
+      - targets: ['host.docker.internal:8080'] # Simply, pointing out the target to be scrapped
         labels:
           application: "Movies API"

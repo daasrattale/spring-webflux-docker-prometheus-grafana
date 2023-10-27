@@ -3,14 +3,18 @@ services:
   prometheus:
     image: prom/prometheus
     container_name: prometheus
+    restart: unless-stopped
     volumes:
-      - ./env/prometheus.yaml:/etc/prometheus/prometheus.yaml
+      - ./config/prometheus.yaml:/etc/prometheus/prometheus.yaml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yaml"
     ports:
       - "9090:9090"
+
   grafana:
     image: grafana/grafana
     container_name: grafana
     ports:
       - "3000:3000"
     env_file:
-      - ./env/grafana.env
+      - config/grafana.env

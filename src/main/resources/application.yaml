@@ -4,5 +4,6 @@ management:
       exposure:
         include:
           - prometheus
-server:
-  port: 8082
+  endpoint:
+    health:
+      show-details: always
